@@ -15,14 +15,17 @@
   "homepage": "https://cesiumjs.org",
   "license": "Apache-2.0",
   "dependencies": {
-    "cesium": "^1.63.1"
+    "c137.js": "^1.73.14"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^6.0.3",
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^1.16.2",
+    "rollup-plugin-terser": "^5.0.0",
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
-    "strip-pragma-loader": "^1.0.0",
-    "style-loader": "^1.0.0",
+    "serve": "^11.3.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
@@ -33,6 +36,11 @@
     "build": "node_modules/.bin/webpack --config webpack.config.js",
     "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
     "release": "node_modules/.bin/webpack --config webpack.release.config.js",
-    "serve-release": "node_modules/.bin/webpack-dev-server --config webpack.release.config.js --content-base /dist"
+    "serve-release": "node_modules/.bin/webpack-dev-server --config webpack.release.config.js --content-base /dist",
+    "start:es6": "serve",
+    "build:rollup": "rollup -c",
+    "watch:rollup": "rollup -c -w",
+    "dev:rollup": "npm-run-all --parallel start:rollup watch:rollup",
+    "start:rollup": "serve public"
   }
 }
