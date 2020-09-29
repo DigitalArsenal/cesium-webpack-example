@@ -37,10 +37,10 @@
     "start": "node_modules/.bin/webpack-dev-server --config webpack.config.js",
     "release": "node_modules/.bin/webpack --config webpack.release.config.js",
     "serve-release": "node_modules/.bin/webpack-dev-server --config webpack.release.config.js --content-base /dist",
-    "start:es6": "serve",
+    "start:es6": "serve -l 8080",
     "build:rollup": "rollup -c",
     "watch:rollup": "rollup -c -w",
     "dev:rollup": "npm-run-all --parallel start:rollup watch:rollup",
-    "start:rollup": "serve public"
+    "start:rollup": "serve -l 8080 public"
   }
 }
